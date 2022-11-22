@@ -15,7 +15,7 @@ jobs:
         run: |
           git fetch
           echo "DIFF_MERGES=$(git log --pretty=format:"%h%ad%x09%an%x09%s" --oneline --no-merges --date=short origin/main...origin/develop)" >> $GITHUB_OUTPUT
-          echo 'EOF' >> $GITHUB_ENV
+          echo '<<EOF' >> $GITHUB_OUTPUT
         id: diff_merges
 
       - name: Use the value
