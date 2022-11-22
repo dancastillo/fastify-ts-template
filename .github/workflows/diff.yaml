@@ -11,12 +11,12 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v3
 
-        - name: Get Branch diffs
-          run: |
-            echo "DIFF_MERGES=$(git log --pretty=format:"%h%ad%x09%an%x09%s" --date=short main...develop)" >> $GITHUB_OUTPUT
-          id: diff_merges
+      - name: Get Branch diffs
+        run: |
+          echo "DIFF_MERGES=$(git log --pretty=format:"%h%ad%x09%an%x09%s" --date=short main...develop)" >> $GITHUB_OUTPUT
+        id: diff_merges
 
-        - name: Use the value
-          id: step_two
-          run: |
-            echo "${{ env.DIFF_MERGES }}"
+      - name: Use the value
+        id: step_two
+        run: |
+          echo "${{ env.DIFF_MERGES }}"
