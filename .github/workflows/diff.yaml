@@ -13,6 +13,7 @@ jobs:
 
       - name: Get Branch diffs
         run: |
+          git fetch
           echo "DIFF_MERGES=$(git log --pretty=format:"%h%ad%x09%an%x09%s" --date=short main...develop)" >> $GITHUB_OUTPUT
         id: diff_merges
 
