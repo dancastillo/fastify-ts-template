@@ -21,14 +21,13 @@ jobs:
       - name: Get Branch diffs
         run: |
           git fetch
-          echo "DIFF_MERGES2=testing"
-          echo $DIFF_MERGES2 >> $GITHUB_OUTPUT
+          echo "DIFF_MERGES2=testing" >> $GITHUB_OUTPUT
         id: diff_merges2
 
       - name: Use the value
         id: step_two
         run: |
-          echo "diff_merges: ${{ steps.diff_merges2.outputs.diff_merges }}"
+          echo "diff_merges: ${{ steps.diff_merges.outputs.diff_merges }}"
           echo "${{ steps.diff_merges.outputs.DIFF_MERGES }}"
           echo "other: ${{ steps.version.outputs.DIFF_MERGES }}"
           echo "env: ${{ env.DIFF_MERGES }}"
