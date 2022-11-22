@@ -21,4 +21,4 @@ jobs:
       - name: Use the value
         id: step_two
         run: |
-          echo "${{ env.DIFF_MERGES }}"
+          echo "${{ steps.version.outputs.DIFF_MERGES }}"
