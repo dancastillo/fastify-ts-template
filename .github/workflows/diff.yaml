@@ -31,12 +31,4 @@ jobs:
         id: step_two
         run: |
           echo "diff_merges: ${{ steps.diff_merges.outputs.diff_merges }}"
-          echo "${{ steps.diff_merges.outputs.DIFF_MERGES }}"
-          echo "other: ${{ steps.version.outputs.DIFF_MERGES }}"
-          echo "env: ${{ env.DIFF_MERGES }}"
-          echo "\n"
-          echo "diff_merges: ${{ steps.diff_merges.outputs.diff_merges }}"
           echo "diff_merges2: ${{ steps.diff_merges2.outputs.diff_merges2 }}"
-          echo "${{ steps.diff_merges2.outputs.DIFF_MERGES2 }}"
-          echo "other: ${{ steps.version.outputs.DIFF_MERGES2 }}"
-          echo "env: ${{ env.DIFF_MERGES2 }}"
