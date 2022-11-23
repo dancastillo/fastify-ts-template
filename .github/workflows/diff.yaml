@@ -27,7 +27,7 @@ jobs:
       - name: read
         run: |
           readarray -t arr < test.txt
-          $DIFF_MERGES = ''
+          DIFF_MERGES = ''
           for i in "${arr[@]}"
           do
             echo "- [] $i\n"
