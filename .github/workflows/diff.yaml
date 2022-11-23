@@ -11,20 +11,15 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v3
 
-      - name: Get Branch diffs
+      - name: Git fetch
         run: |
           git fetch
 
       - name: Get Branch diffs
         run: |
           echo "$(git log --oneline --no-merges --date=short origin/main...origin/develop)" >> test.txt
-        id: diff_merges
 
-      - name: cat
-        run: |
-          cat test.txt
-
-      - name: read
+      - name: Load into ISSUE.md
         run: |
           echo "---" >> ISSUE.md
           echo "title: Someone just pushed" >> ISSUE.md
@@ -37,11 +32,6 @@ jobs:
             # echo "- [] $i\n" >> ISSUE.md
             echo "$i\n" >> ISSUE.md
           done
-        id: export_diff
-
-      - name: cat
-        run: |
-          cat ISSUE.md
 
       - uses: JasonEtco/create-an-issue@v2
         env:
@@ -50,15 +40,6 @@ jobs:
           filename: ./ISSUE.md
           update_existing: true
 
-      # - name: Get Branch diffs
-      #   run: |
-      #     echo "DIFF_MERGES2=testingfsfasdfsfdafds" >> $GITHUB_OUTPUT
-      #   id: diff_merges2
-
-      # - name: Use the value
-      #   id: step_two
-      #   run: |
-      #     echo "diff_merges: ${{ steps.diff_merges.outputs.diff_merges }}"
-      #     echo "diff_merges2: ${{ steps.diff_merges2.outputs.diff_merges2 }}"
-      #     echo "---------------"
-      #     echo "export_diff: ${{ steps.export_diff.outputs.export_diff }}"
+      - name: Remove ISSUE.md
+        run: |
+          rm ISSUE.md
