@@ -26,7 +26,7 @@ jobs:
           readarray -t arr < test.txt
           for i in "${arr[@]}"
           do
-            echo "- [ ] $i\n" >> ISSUE.md
+            echo "- [ ] $i" >> ISSUE.md
           done
 
       - name: Create Issue
@@ -37,6 +37,6 @@ jobs:
           filename: ./ISSUE.md
           update_existing: true
 
-      - name: Remove ISSUE.md
-        run: |
-          rm ISSUE.md
+      # - name: Remove ISSUE.md
+      #   run: |
+      #     rm ISSUE.md
