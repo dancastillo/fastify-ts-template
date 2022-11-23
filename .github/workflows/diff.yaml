@@ -21,7 +21,9 @@ jobs:
 
       - name: Load into ISSUE.md
         run: |
+          echo "---" >> ISSUE.md
           echo "## Dev to Stage:" >> ISSUE.md
+          echo "---"  >> ISSUE.md
 
           readarray -t arr < test.txt
           for i in "${arr[@]}"
@@ -34,8 +36,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          filename: ./ISSUE.md
           update_existing: true
-          filename: "ISSUE.md"
 
       # - name: Remove ISSUE.md
       #   run: |
