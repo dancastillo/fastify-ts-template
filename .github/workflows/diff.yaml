@@ -23,6 +23,9 @@ jobs:
       - name: cat
         run: |
           cat test.txt
+          IFS=$'\n' read -d '' -r -a lines < test.txt
+          echo "---------"
+          echo "${lines[@]}"
 
       - name: Get Branch diffs
         run: |
