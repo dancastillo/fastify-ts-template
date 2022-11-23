@@ -22,7 +22,7 @@ jobs:
       - name: Load into ISSUE.md
         run: |
           echo "---" >> ISSUE.md
-          echo "Dev to Stage:" >> ISSUE.md
+          echo "Dev to Stage" >> ISSUE.md
           echo "---"  >> ISSUE.md
 
           readarray -t arr < test.txt
