@@ -27,11 +27,15 @@ jobs:
       - name: read
         run: |
           readarray -t arr < test.txt
+          $DIFF_MERGES = ''
           for i in "${arr[@]}"
           do
-            echo "$i"
+            echo "- [] $i\n"
+            $DIFF_MERGES += "- [] $i\n"
             # or do whatever with individual element of the array
           done
+          echo "$$DIFF_MERGES" >> $GITHUB_OUTPUT
+        id: export_diff
 
       - name: Get Branch diffs
         run: |
@@ -43,3 +47,5 @@ jobs:
         run: |
           echo "diff_merges: ${{ steps.diff_merges.outputs.diff_merges }}"
           echo "diff_merges2: ${{ steps.diff_merges2.outputs.diff_merges2 }}"
+          echo "---------------"
+          echo "export_diff: ${{ steps.export_diff.outputs.export_diff }}"
