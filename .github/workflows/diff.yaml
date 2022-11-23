@@ -5,12 +5,10 @@ on:
       - main
       - develop
 jobs:
-
   create_issue_stage:
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Check out code
         uses: actions/checkout@v3
 
@@ -40,3 +38,8 @@ jobs:
         with:
           filename: ./ISSUE.md
           update_existing: true
+
+      - name: Clean up
+        run: |
+          rm test.txt
+          rm ISSUE.md
