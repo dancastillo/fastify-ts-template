@@ -31,14 +31,9 @@ jobs:
             echo "- [ ] $i" >> ISSUE.md
           done
 
-      - name: Create Issue
-        uses: JasonEtco/create-an-issue@v2
+      - uses: JasonEtco/create-an-issue@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           filename: ./ISSUE.md
           update_existing: true
-
-      # - name: Remove ISSUE.md
-      #   run: |
-      #     rm ISSUE.md
