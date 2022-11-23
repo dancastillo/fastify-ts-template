@@ -1,4 +1,4 @@
-name: Create Test
+name: Create Dev to Stage Commits
 on:
   pull_request:
     branches:
@@ -21,16 +21,12 @@ jobs:
 
       - name: Load into ISSUE.md
         run: |
-          echo "---" >> ISSUE.md
-          echo "title: Someone just pushed" >> ISSUE.md
-          echo "---"  >> ISSUE.md
+          echo "## Dev to Stage:" >> ISSUE.md
 
           readarray -t arr < test.txt
           for i in "${arr[@]}"
           do
-            # echo "- [] $i\n"
-            # echo "- [] $i\n" >> ISSUE.md
-            echo "$i\n" >> ISSUE.md
+            echo "- [ ] $i\n" >> ISSUE.md
           done
 
       - uses: JasonEtco/create-an-issue@v2
