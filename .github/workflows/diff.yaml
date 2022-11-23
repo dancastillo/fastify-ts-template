@@ -49,7 +49,6 @@ jobs:
         with:
           filename: ./ISSUE.md
           update_existing: true
-          search_existing: all
 
       # - name: Get Branch diffs
       #   run: |
