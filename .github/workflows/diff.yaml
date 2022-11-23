@@ -26,6 +26,10 @@ jobs:
 
       - name: read
         run: |
+          echo "---" >> ISSUE.md
+          echo "title: Someone just pushed" >> ISSUE.md
+          echo "---"  >> ISSUE.md
+
           readarray -t arr < test.txt
           for i in "${arr[@]}"
           do
