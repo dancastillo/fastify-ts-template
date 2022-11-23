@@ -29,7 +29,8 @@ jobs:
             echo "- [ ] $i\n" >> ISSUE.md
           done
 
-      - uses: JasonEtco/create-an-issue@v2
+      - name: Create Issue
+        uses: JasonEtco/create-an-issue@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
