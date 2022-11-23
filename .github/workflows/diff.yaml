@@ -17,14 +17,12 @@ jobs:
 
       - name: Get Branch diffs
         run: |
-          echo 'BRANCH_DIFFERENCES<<EOF' >> $GITHUB_ENV
-          git log --oneline --no-merges --date=short origin/main...origin/develop >> $GITHUB_ENV
-          echo 'EOF' >> $GITHUB_ENV
+          echo "DIFF_MERGES=$(git log --oneline --no-merges --date=short origin/main...origin/develop)" >> $GITHUB_ENV
         id: diff_merges
 
       - name: Get Branch diffs
         run: |
-          echo "DIFF_MERGES2=testing" >> $GITHUB_OUTPUT
+          echo "DIFF_MERGES2=testingfsfasdfsfdafds" >> $GITHUB_OUTPUT
         id: diff_merges2
 
       - name: Use the value
