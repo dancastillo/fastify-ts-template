@@ -17,8 +17,12 @@ jobs:
 
       - name: Get Branch diffs
         run: |
-          echo "DIFF_MERGES=$(git log --oneline --no-merges --date=short origin/main...origin/develop)" >> $GITHUB_ENV
+          echo "DIFF_MERGES=$(git log --oneline --no-merges --date=short origin/main...origin/develop)" >> test.txt
         id: diff_merges
+
+      - name: cat
+        run: |
+          cat test.txt
 
       - name: Get Branch diffs
         run: |
