@@ -38,15 +38,24 @@ jobs:
         run: |
           cat ISSUE.md
 
-      - name: Get Branch diffs
-        run: |
-          echo "DIFF_MERGES2=testingfsfasdfsfdafds" >> $GITHUB_OUTPUT
-        id: diff_merges2
+      - uses: JasonEtco/create-an-issue@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+        with:
+          filename: ./ISSUE.md
+          update_existing: true
+          search_existing: all
 
-      - name: Use the value
-        id: step_two
-        run: |
-          echo "diff_merges: ${{ steps.diff_merges.outputs.diff_merges }}"
-          echo "diff_merges2: ${{ steps.diff_merges2.outputs.diff_merges2 }}"
-          echo "---------------"
-          echo "export_diff: ${{ steps.export_diff.outputs.export_diff }}"
+      # - name: Get Branch diffs
+      #   run: |
+      #     echo "DIFF_MERGES2=testingfsfasdfsfdafds" >> $GITHUB_OUTPUT
+      #   id: diff_merges2
+
+      # - name: Use the value
+      #   id: step_two
+      #   run: |
+      #     echo "diff_merges: ${{ steps.diff_merges.outputs.diff_merges }}"
+      #     echo "diff_merges2: ${{ steps.diff_merges2.outputs.diff_merges2 }}"
+      #     echo "---------------"
+      #     echo "export_diff: ${{ steps.export_diff.outputs.export_diff }}"
