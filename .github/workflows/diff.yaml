@@ -33,8 +33,9 @@ jobs:
           readarray -t arr < test.txt
           for i in "${arr[@]}"
           do
-            echo "- [] $i\n"
-            echo "- [] $i\n" >> ISSUE.md
+            # echo "- [] $i\n"
+            # echo "- [] $i\n" >> ISSUE.md
+            echo "$i\n" >> ISSUE.md
           done
         id: export_diff
 
